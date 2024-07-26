@@ -1,0 +1,21 @@
+.search-container {
+  position: relative;
+}
+
+.magnifying-glass {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.search {
+  background-color: #0000004d;
+  border: none;
+  border-radius: 8px;
+  color: var(--Grey-Grey400);
+  padding: 8px 16px 8px 32px;
+}
+
+.search::placeholder {
+  color: var(--Grey-Grey400);
+}
