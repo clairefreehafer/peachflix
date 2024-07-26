@@ -1,20 +1,35 @@
+import { useState } from "react";
 import MagnifyingGlass from "../images/magnifying-glass.svg";
 import "./search.css";
 
-type Props = {
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
-};
+export default function Search() {
+  const [searchQuery, setSearchQuery] = useState("");
 
-export default function Search({ onChange }: Props) {
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    try {
+      const results = await fetch(
+        `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${searchQuery}`
+      );
+      const resultsJson = await results.json();
+
+      console.log(resultsJson);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   return (
-    <div className="search-container">
+    <form onSubmit={handleSubmit} className="search-container">
       <img src={MagnifyingGlass} alt="" className="magnifying-glass" />
       <input
         type="search"
         placeholder="Search"
-        onChange={onChange}
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
         className="search"
       />
-    </div>
+    </form>
   );
 }

@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <img src={Logo} alt="PeachFlix" />
-      <Search onChange={() => {}} />
+      <Search />
     </div>
   );
 }
