@@ -2,16 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+To run the app, you will first need to create an `.env.local` file in the root directory. In there, create the variable `REACT_APP_API_KEY` and set it to your OMDb API key.
 
-In the project directory, you can run:
+Then, run `npm start` and open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-### `npm test`
+## Tests
 
 tba
 
