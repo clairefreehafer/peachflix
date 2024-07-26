@@ -18,4 +18,4 @@ For the simple routing required of this app I chose to use React Router's browse
 
 ### Styling
 
-For simple apps such as this I like to stick with vanilla CSS. For something more complex I would likely persue a CSS-in-JS option, such as Emotion or styled-components.
+For simple apps such as this I like to stick with vanilla CSS, in this case a combination of inline style objects and sidecar `.css` files. For something more complex I would likely persue a CSS-in-JS option, such as Emotion or styled-components.

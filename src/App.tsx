@@ -18,7 +18,7 @@ const router = createBrowserRouter([
       const url = new URL(request.url);
       const searchTerm = url.searchParams.get("q");
       return fetch(
-        `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${searchTerm}`
+        `https://omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${searchTerm}&type=movie`
       );
     },
   },

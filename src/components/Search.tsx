@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Form } from "react-router-dom";
 import MagnifyingGlass from "../images/magnifying-glass.svg";
-import "./search.css";
+import "./Search.css";
 
 export default function Search() {
   const [searchQuery, setSearchQuery] = useState("");
