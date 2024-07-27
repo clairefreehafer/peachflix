@@ -17,6 +17,7 @@ export default function Search() {
         onChange={(e) => setSearchQuery(e.target.value)}
         className="search"
       />
+      <input type="hidden" value="1" name="p" />
     </Form>
   );
 }

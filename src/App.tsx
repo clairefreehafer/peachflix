@@ -17,8 +17,9 @@ const router = createBrowserRouter([
     loader: async ({ request }) => {
       const url = new URL(request.url);
       const searchTerm = url.searchParams.get("q");
+      const page = url.searchParams.get("p");
       return fetch(
-        `https://omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${searchTerm}&type=movie`
+        `https://omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${searchTerm}&type=movie&page=${page}`
       );
     },
   },
