@@ -19,3 +19,9 @@ For the simple routing required of this app I chose to use React Router's browse
 ### Styling
 
 For simple apps such as this I like to stick with vanilla CSS, in this case a combination of inline style objects and sidecar `.css` files. For something more complex I would likely persue a CSS-in-JS option, such as Emotion or styled-components.
+
+The exact measurements of some margins, padding, spacing, etc. may not be exact because Figma would not allow me to access Dev Mode without being a member of the team.
+
+### Movie Search Results
+
+Currently, an API call is performed every time a search is made and a new page of results is navigated to. With more time, a potential optimization is to cache paged results for a particular search so that as a user goes back and forth between pages we do not need to make duplicate API calls. I would clear this cache between search queries to not bog down browser memory.

@@ -2,6 +2,7 @@ import { useLoaderData, useSearchParams } from "react-router-dom";
 import PosterGrid from "../components/PosterGrid";
 import { SearchResults } from "../types";
 import Pagination from "../components/Pagination";
+import Nav from "../components/Nav";
 
 export default function Results() {
   const results = useLoaderData() as SearchResults;
@@ -12,6 +13,7 @@ export default function Results() {
 
   return (
     <>
+      <Nav />
       <h1>Search results for "{searchTerm}"</h1>
       <PosterGrid movies={results.Search} />
       <Pagination total={results.totalResults} />

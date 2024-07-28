@@ -1,10 +1,22 @@
-import { useState } from "react";
-import { Form } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Form, useSearchParams } from "react-router-dom";
 import MagnifyingGlass from "../images/magnifying-glass.svg";
 import "./Search.css";
 
 export default function Search() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const queryFromParams = searchParams.get("q");
+
+    if (!queryFromParams) return;
+
+    // Fill the search bar on "/results" with our query from "/"
+    if (searchQuery.length === 0 && queryFromParams.length > 0) {
+      setSearchQuery(queryFromParams);
+    }
+  }, []);
 
   return (
     <Form action="/results" className="search-container">

@@ -1,7 +1,13 @@
 :root {
+  --Surface-Surface: #fafafa;
   --Grey-Grey400: #a3a3a5;
   --Grey-Grey700: #565659;
   --Grey-Grey800: #3e3e40;
+  --Surface-On-Surface: #252528;
+}
+
+*:focus {
+  outline: #55a0f5 solid 3px;
 }
 
 body {

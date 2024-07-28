@@ -1,0 +1,16 @@
+.nav {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  margin: 1rem;
+}
+
+.nav-section {
+  display: flex;
+  align-items: center;
+
+  & .button {
+    margin-right: 1rem;
+  }
+}
