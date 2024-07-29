@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { SearchResults } from "../types";
+import MovieInfo from "./MovieInfo";
 
 const gridStyles: React.CSSProperties = {
   display: "grid",
@@ -19,16 +21,24 @@ type Props = {
 };
 
 export default function PosterGrid({ movies }: Props) {
+  const [movieImdbID, setMovieImdbID] = useState("");
+
   return (
-    <div style={gridStyles}>
-      {movies.map((movie) => (
-        <img
-          src={movie.Poster}
-          alt={movie.Title}
-          key={movie.imdbID}
-          style={posterStyles}
-        />
-      ))}
-    </div>
+    <>
+      <div style={gridStyles}>
+        {movies.map((movie) => (
+          // TODO: add "N/A" placeholder (style text?)
+          <button onClick={() => setMovieImdbID(movie.imdbID)}>
+            <img
+              src={movie.Poster}
+              alt={movie.Title}
+              key={movie.imdbID}
+              style={posterStyles}
+            />
+          </button>
+        ))}
+      </div>
+      <MovieInfo imdbID={movieImdbID} />
+    </>
   );
 }

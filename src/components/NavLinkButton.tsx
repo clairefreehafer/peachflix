@@ -5,7 +5,7 @@ type Props = NavLinkProps;
 
 export default function Button({ children, to }: Props) {
   return (
-    <NavLink to={to} className="button">
+    <NavLink to={to} className="nav-link-button">
       {children}
     </NavLink>
   );

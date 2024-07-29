@@ -1,0 +1,24 @@
+.button {
+  align-items: center;
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--Surface-Surface);
+  cursor: pointer;
+  display: flex;
+  font-weight: 600;
+  padding: 0.5rem 0.8rem;
+
+  &.primary {
+    background-color: var(--Orange-Orange400);
+    border: 2px solid var(--Orange-Orange400);
+  }
+
+  &.secondary {
+    background-color: transparent;
+    border: 2px solid var(--Surface-Surface);
+  }
+
+  .icon {
+    margin-right: 8px;
+  }
+}

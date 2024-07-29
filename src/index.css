@@ -3,7 +3,10 @@
   --Grey-Grey400: #a3a3a5;
   --Grey-Grey700: #565659;
   --Grey-Grey800: #3e3e40;
+  --Grey-Grey900: #252528;
   --Surface-On-Surface: #252528;
+
+  --Orange-Orange400: #fd6e1d;
 }
 
 *:focus {
