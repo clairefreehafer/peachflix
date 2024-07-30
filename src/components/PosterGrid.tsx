@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SearchResults } from "../types";
+import { MovieData } from "../utils/types";
 import MovieInfo from "./MovieInfo";
 
 const gridStyles: React.CSSProperties = {
@@ -17,7 +17,7 @@ const posterStyles: React.CSSProperties = {
 };
 
 type Props = {
-  movies: SearchResults["Search"];
+  movies: MovieData[];
 };
 
 export default function PosterGrid({ movies }: Props) {

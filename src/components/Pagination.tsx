@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom";
-import { SearchResults } from "../types";
+import { SearchResults } from "../utils/types";
 import Chevron from "../images/chevron.svg";
 import "./Pagination.css";
 
@@ -11,9 +11,6 @@ export default function Pagination({ total }: Props) {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = parseInt(searchParams.get("p") as string);
   const numberOfPages = [...new Array(Math.ceil(parseInt(total) / 10))];
-
-  console.log(searchParams);
-  console.log(currentPage);
 
   function handleClick(nextPage: number) {
     setSearchParams((prevParams) => {

@@ -32,6 +32,10 @@ Currently, an API call is performed every time a search is made and a new page o
 
 A few other things I would improve with more time:
 
+#### Typing
+
+I started out typing the API results and movie data but eventually felt like I was getting too bogged down with the differences in what the API can return, so opted for more open typing. With more time I would tighten this up.
+
 #### Move Info Modal Background
 
 The OMDb API does not return an image such as the one in the mock to use as a background for the modal, so I have just used a solid color. I considered using a high-quality poster image but it seems those are limited to people who contribute monetarily to the API.
@@ -43,3 +47,8 @@ The mocks show the movie plot ending with a "Read More" link. With more time I w
 #### Movie Rating
 
 The movie rating on the movie info modal is not implemented. The API does not return a 5-star system rating, so one of the ones it does return (or multiple, to create an aggregate) would need to be translated to the 5-star system. With more time I would implement this, or perhaps let the user set their own rating here that is stored alongside their favorite films.
+
+#### Favorites
+
+- Duplicate favoriting is not accounted for.
+- "Add to favorites" button not responsive

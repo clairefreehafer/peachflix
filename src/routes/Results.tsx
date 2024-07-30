@@ -1,6 +1,6 @@
 import { useLoaderData, useSearchParams } from "react-router-dom";
 import PosterGrid from "../components/PosterGrid";
-import { SearchResults } from "../types";
+import { SearchResults } from "../utils/types";
 import Pagination from "../components/Pagination";
 import Nav from "../components/Nav";
 

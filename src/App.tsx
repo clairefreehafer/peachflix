@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./routes/Home";
 import Results from "./routes/Results";
 import Favorites from "./routes/Favorites";
+import { FAVORITES_LOCAL_STORAGE_KEY } from "./utils/variables";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,11 @@ const router = createBrowserRouter([
   {
     path: "favorites",
     element: <Favorites />,
+    loader: () => {
+      const favorites =
+        localStorage.getItem(FAVORITES_LOCAL_STORAGE_KEY) || "[]";
+      return JSON.parse(favorites);
+    },
   },
 ]);
 
