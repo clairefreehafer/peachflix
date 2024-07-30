@@ -24,6 +24,10 @@ With more time I would refactor and clean up the CSS.
 
 Currently, an API call is performed every time a search is made and a new page of results is navigated to. With more time, a potential optimization is to cache paged results for a particular search so that as a user goes back and forth between pages we do not need to make duplicate API calls. I would clear this cache between search queries to not bog down browser memory.
 
+### Movies with no poster
+
+In Firefox, where I built the app, when a movie does not have a poster it just rendered the alt text, which I have set to the movie title. At the end of the project, testing in Chrome, I realized that the broken image symbole is also shown. With more time I'd fix this to show something a bit nicer.
+
 ### Typing
 
 I started out typing the API results and movie data but eventually felt like I was getting too bogged down with the differences in what the API can return, so opted for more open typing. With more time I would tighten this up.
