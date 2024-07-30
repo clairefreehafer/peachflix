@@ -2,6 +2,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
+  margin: 0 1rem;
 
   .buttons {
     align-items: center;
@@ -47,5 +48,9 @@
     &.previous {
       transform: rotate(180deg);
     }
+  }
+
+  .pages {
+    text-align: right;
   }
 }

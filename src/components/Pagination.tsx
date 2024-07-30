@@ -56,7 +56,7 @@ export default function Pagination({ total }: Props) {
         </button>
       </div>
 
-      <p>
+      <p className="pages">
         {currentPage === numberOfPages.length ? total : 10 * currentPage} of{" "}
         {total} results
       </p>

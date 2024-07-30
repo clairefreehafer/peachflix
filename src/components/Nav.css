@@ -27,6 +27,10 @@
 
   @media screen and (max-width: 650px) {
     flex-direction: column;
+
+    & .nav-link-button {
+      margin-right: 0;
+    }
   }
 }
 
