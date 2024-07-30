@@ -4,6 +4,17 @@
   justify-content: space-between;
   height: 40px;
   margin: 1rem;
+
+  @media screen and (max-width: 650px) {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+.nav-logo {
+  @media screen and (max-width: 650px) {
+    margin-bottom: 1rem;
+  }
 }
 
 .nav-section {
@@ -12,5 +23,15 @@
 
   & .button {
     margin-right: 1rem;
+  }
+
+  @media screen and (max-width: 650px) {
+    flex-direction: column;
+  }
+}
+
+.button-container {
+  @media screen and (max-width: 650px) {
+    margin-bottom: 1rem;
   }
 }

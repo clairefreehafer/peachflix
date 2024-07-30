@@ -6,10 +6,12 @@ import "./Nav.css";
 export default function Nav() {
   return (
     <nav className="nav">
-      <img src={Logo} alt="Peachflix." height={40} />
+      <img src={Logo} alt="Peachflix." height={40} className="nav-logo" />
       <div className="nav-section">
-        <NavLinkButton to="/">Movies</NavLinkButton>
-        <NavLinkButton to="/favorites">Favorites</NavLinkButton>
+        <div className="button-container">
+          <NavLinkButton to="/">Movies</NavLinkButton>
+          <NavLinkButton to="/favorites">Favorites</NavLinkButton>
+        </div>
         <Search />
       </div>
     </nav>
