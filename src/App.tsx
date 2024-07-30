@@ -6,6 +6,7 @@ import Home from "./routes/Home";
 import Results from "./routes/Results";
 import Favorites from "./routes/Favorites";
 import { FAVORITES_LOCAL_STORAGE_KEY } from "./utils/variables";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const router = createBrowserRouter([
   {
@@ -19,10 +20,17 @@ const router = createBrowserRouter([
       const url = new URL(request.url);
       const searchTerm = url.searchParams.get("q");
       const page = url.searchParams.get("p");
-      return fetch(
+      const results = await fetch(
         `https://omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${searchTerm}&type=movie&page=${page}`
       );
+      const json = await results.json();
+
+      if (json.Response === "False") {
+        throw new Error(json.Error);
+      }
+      return json;
     },
+    errorElement: <ErrorBoundary />,
   },
   {
     path: "favorites",
@@ -32,6 +40,7 @@ const router = createBrowserRouter([
         localStorage.getItem(FAVORITES_LOCAL_STORAGE_KEY) || "[]";
       return JSON.parse(favorites);
     },
+    errorElement: <ErrorBoundary />,
   },
 ]);
 

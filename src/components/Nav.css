@@ -21,7 +21,7 @@
   display: flex;
   align-items: center;
 
-  & .button {
+  & .nav-link-button {
     margin-right: 1rem;
   }
 

@@ -5,6 +5,7 @@ import Button from "./Button";
 import "./MovieInfo.css";
 import { FAVORITES_LOCAL_STORAGE_KEY } from "../utils/variables";
 import { MovieData } from "../utils/types";
+import Loading from "./Loading";
 
 type Props = {
   imdbID: string;
@@ -13,17 +14,29 @@ type Props = {
 export default function MovieInfo({ imdbID }: Props) {
   const [movieData, setMovieData] = useState<MovieData>();
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     if (imdbID.length > 0) {
       dialogRef.current?.showModal();
+      setIsLoading(true);
 
       fetch(
         `https://omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=${imdbID}`
       )
         .then((result) => result.json())
-        .then((json) => setMovieData(json))
-        .catch(console.error);
+        .then((json) => {
+          if (json.Response === "False") {
+            throw new Error(json.Error);
+          }
+          setMovieData(json);
+          setIsLoading(false);
+        })
+        .catch((e) => {
+          setError(e.message);
+          console.error(e);
+        });
     }
   }, [imdbID]);
 
@@ -32,7 +45,7 @@ export default function MovieInfo({ imdbID }: Props) {
     setMovieData(undefined);
   }
 
-  function handleFavorite(movieInfo: MovieData) {
+  function handleFavorite(movieInfo: MovieData | undefined) {
     const favoritesString =
       localStorage.getItem(FAVORITES_LOCAL_STORAGE_KEY) || "[]";
     const favoritesArray = JSON.parse(favoritesString);
@@ -51,7 +64,12 @@ export default function MovieInfo({ imdbID }: Props) {
         <button onClick={handleModalClose} className="close-button">
           x
         </button>
-        {movieData ? (
+
+        {error && <>❌ ERROR: {error}</>}
+
+        {!error && isLoading && <Loading />}
+
+        {!error && !isLoading && (
           <>
             <h1 className="title">{movieData?.Title}</h1>
             <p style={{ marginBottom: "0.5rem" }}>{movieData?.Plot}</p>
@@ -91,8 +109,6 @@ export default function MovieInfo({ imdbID }: Props) {
               <strong>Genre:</strong> {movieData?.Genre}
             </p>
           </>
-        ) : (
-          <>Error loading movie data</>
         )}
       </div>
     </dialog>
